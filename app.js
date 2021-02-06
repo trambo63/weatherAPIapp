@@ -4,6 +4,7 @@ let url;
 let urlString1 = "?q=";
 let urlString2 = "&APPID=";
 const searchTerm = document.querySelector('.city-search');
+const searchZip = document.querySelector('.city-zip');
 const searchForm = document.querySelector('.form');
 const searchButton = document.querySelector('.submit');
 
@@ -12,7 +13,7 @@ searchForm.addEventListener('submit', fetchResults);
 
 function fetchResults(e){
     e.preventDefault();
-    url = baseURL + urlString1 + searchTerm.value + urlString2 + key;
+    url = baseURL  + urlString1 + searchTerm.value + urlString2 + key;
     console.log(searchTerm.value)
     console.log(url);
     if(searchTerm.value == ""){
