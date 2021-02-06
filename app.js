@@ -3,7 +3,9 @@ const key = "23467fc4ff5f97589f94669c40eee388";
 let url;
 let urlString1 = "?q=";
 let urlString2 = "&APPID=";
-const searchTerm = document.querySelector('.city-search');
+const searchCity = document.querySelector('.city-search');
+const searchState = document.querySelector('.state-search');
+const searchCountry = document.querySelector('.country-search');
 const searchZip = document.querySelector('.city-zip');
 const searchForm = document.querySelector('.form');
 const searchButton = document.querySelector('.submit');
@@ -13,10 +15,10 @@ searchForm.addEventListener('submit', fetchResults);
 
 function fetchResults(e){
     e.preventDefault();
-    url = baseURL  + urlString1 + searchTerm.value + urlString2 + key;
-    console.log(searchTerm.value)
+    url = baseURL + urlString1 + searchCity.value + ","  + searchState.value + "," + searchCountry.value + urlString2 + key;
+    console.log(searchCity.value)
     console.log(url);
-    if(searchTerm.value == ""){
+    if(searchCity.value == ""){
         alert('Enter City!');
     }else{
         fetch(url)
@@ -32,14 +34,17 @@ function fetchResults(e){
 }
 
 function displayResults(json){
-    const section = document.getElementById("main");
+    const section = document.querySelector(".main");
     while (section.firstChild) {
         section.removeChild(section.firstChild);
     }
-    let article = document.createElement('article')
+    let divHeader = document.createElement('div');
+    divHeader.classList.add('main-header');
     let cityName = document.createElement('h1');
     let currentTemp = document.createElement('h2');
     let description = document.createElement('p');
+    let divContent = document.createElement('div');
+    divContent.classList.add('main-content');
     let maxTemp = document.createElement('h3');
     let minTemp = document.createElement('h3'); 
     let feelsLike = document.createElement('h3'); 
@@ -61,7 +66,7 @@ function displayResults(json){
     let airP = json.main.pressure;
 
     cityName.innerHTML = cityUpper;
-    currentTemp.innerText = "Current Temp: " + roundedTemp(temp);
+    currentTemp.innerText = "Temp: " + roundedTemp(temp);
     description.innerText =  descUpper;
     maxTemp.innerText = "Max Temp: " + roundedTemp(tempMax);
     minTemp.innerHTML = "Min Temp: " + roundedTemp(tempMin);
@@ -71,16 +76,17 @@ function displayResults(json){
     airPressure.innerHTML = "Air Pressure: " + milibarToHg(airP) + "Hg";
 
 
-    section.appendChild(article);
-    article.appendChild(cityName);
-    article.appendChild(currentTemp);
-    article.appendChild(description);
-    article.appendChild(maxTemp);
-    article.appendChild(minTemp);
-    article.appendChild(feelsLike);
-    article.appendChild(windSeed);
-    article.appendChild(humidity);
-    article.appendChild(airPressure);
+    section.appendChild(divHeader);
+    divHeader.appendChild(cityName);
+    divHeader.appendChild(currentTemp);
+    divHeader.appendChild(description);
+    section.appendChild(divContent);
+    divContent.appendChild(maxTemp);
+    divContent.appendChild(minTemp);
+    divContent.appendChild(feelsLike);
+    divContent.appendChild(windSeed);
+    divContent.appendChild(humidity);
+    divContent.appendChild(airPressure);
 
 }
 

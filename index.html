@@ -5,28 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="app-container">
         <nav class="nav-container">
+            <h1>WEATHER NOW!</h1>
             <div class="nav">
-                <h1>Weather Now!</h1>
                 <form class="form">
-                    <p>
-                        <label for="city-search">Enter city, state, and country,</label>
-                        <input type="text" class="city-search" id="city-search" placeholder="ex. cleveland,oh,us">
-                        <button class="submit">GO!</button>
-                    </p>
+                    <div class="form-container">
+                        <div class="input-container">
+                            <p>CITY </p>
+                            <input type="text" class="city-search" id="city-search" placeholder="ex. Cleveland">
+                        </div>
+                        <div class="input-container">
+                            <p>STATE /opt</p>
+                            <input type="text" class="state-search" id="state-search" placeholder="ex. OH">
+                        </div>
+                        <div class="input-container">
+                            <p>COUNTRY /opt</p>
+                            <input type="text" class="country-search" id="country-search" placeholder="ex. US">
+                        </div>
+                        <div class="submit-container">
+                            <button class="submit"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </nav>
         
-        <div class="main-container">
-            <div id="main">
         
-        
-            </div>
-        </div>
+            <section class="main">
+                
+            </section>
     </div>
 
     <script type="text/javascript" src="app.js"></script>
