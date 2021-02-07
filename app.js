@@ -94,6 +94,10 @@ function displayResults(json){
         descriptionImage.src = "assets/rain.png";
         descriptionImage.alt = "image";
     }
+    else if (desc.includes('snow')){
+        descriptionImage.src = "assets/snow.png";
+        descriptionImage.alt = "image";
+    }
 
     section.appendChild(divHeader);
     divHeader.appendChild(cityName);
