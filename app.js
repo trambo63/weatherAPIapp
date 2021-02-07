@@ -43,6 +43,8 @@ function displayResults(json){
     let cityName = document.createElement('h1');
     let currentTemp = document.createElement('h2');
     let description = document.createElement('p');
+    let descriptionImage = document.createElement('img');
+    descriptionImage.classList.add('descriptionImage');
     let divContent = document.createElement('div');
     divContent.classList.add('main-content');
     let maxTemp = document.createElement('h3');
@@ -65,21 +67,39 @@ function displayResults(json){
     let hum = json.main.humidity;
     let airP = json.main.pressure;
 
-    cityName.innerHTML = cityUpper;
+    cityName.innerText = cityUpper;
     currentTemp.innerText = "Temp: " + roundedTemp(temp);
     description.innerText =  descUpper;
+    //descriptionImage.innerText = description(desc);
     maxTemp.innerText = "Max Temp: " + roundedTemp(tempMax);
-    minTemp.innerHTML = "Min Temp: " + roundedTemp(tempMin);
-    feelsLike.innerHTML = "Feels like: " + roundedTemp(feel);
-    windSeed.innerHTML = "Wind Speed: " + mpsToMph(wind) + "mph " + windDirection(windD);
-    humidity.innerHTML = "Humidity: " + hum + "%";
-    airPressure.innerHTML = "Air Pressure: " + milibarToHg(airP) + "Hg";
-
+    minTemp.innerText = "Min Temp: " + roundedTemp(tempMin);
+    feelsLike.innerText = "Feels like: " + roundedTemp(feel);
+    windSeed.innerText = "Wind Speed: " + mpsToMph(wind) + "mph " + windDirection(windD);
+    humidity.innerText = "Humidity: " + hum + "%";
+    airPressure.innerText = "Air Pressure: " + milibarToHg(airP) + "Hg";
+    
+    if(desc.includes('cloudy')){
+        descriptionImage.src = "assets/clouds.png";
+        descriptionImage.alt = "image";
+    }
+    else if (desc.includes('few clouds') || desc.includes('clouds')){
+        descriptionImage.src = "assets/partlyCloudy.png";
+        descriptionImage.alt = "image";
+    }
+    else if (desc.includes('clear') || desc.includes('sunny')){
+        descriptionImage.src = "assets/sun.png";
+        descriptionImage.alt = "image";
+    }
+    else if (desc.includes('rain') || desc.includes('showers')){
+        descriptionImage.src = "assets/rain.png";
+        descriptionImage.alt = "image";
+    }
 
     section.appendChild(divHeader);
     divHeader.appendChild(cityName);
     divHeader.appendChild(currentTemp);
     divHeader.appendChild(description);
+    divHeader.appendChild(descriptionImage);
     section.appendChild(divContent);
     divContent.appendChild(maxTemp);
     divContent.appendChild(minTemp);
