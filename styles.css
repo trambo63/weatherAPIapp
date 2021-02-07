@@ -28,6 +28,37 @@ body{
     box-shadow: 10px 10px 10px grey;
 }
 
+@media screen and (max-width: 450px){
+    body{
+        background-color: lightgray;
+        font-family: 'Open Sans', sans-serif;
+        margin: 0;
+        padding: 0;
+        /* display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%; */
+    }
+
+    .app-container {
+        position: absolute;
+        margin: auto;
+        top: 50%;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        /* padding: 20px; */
+        width: 500px;
+        height: 700px;
+        border: black 8px solid;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        background-color: lightskyblue;
+        box-shadow: 10px 10px 10px grey;
+    }
+}
+
 
 .nav-container {
     padding: 0px;
