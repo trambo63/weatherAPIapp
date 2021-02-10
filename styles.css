@@ -151,6 +151,17 @@ input[type=text]:focus {
     background: rgb(255, 255, 255);
 }
 
+#state-search{
+    padding: 4px;
+    border-style: none;
+    background: rgb(184, 184, 184);
+}
+
+#state-search:focus {
+    outline: none;
+    background: rgb(255, 255, 255);
+}
+
 .main {
     padding: 0;
     margin: 0;

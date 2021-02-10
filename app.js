@@ -13,8 +13,12 @@ const searchButton = document.querySelector('.submit');
 
 searchForm.addEventListener('submit', fetchResults);
 
+
 function fetchResults(e){
     e.preventDefault();
+    if(searchCountry.value == 'United States' || searchCountry.value == 'UNITED STATES' || searchCountry.value == 'united states'){
+        searchCountry.value = 'us';
+    }
     url = baseURL + urlString1 + searchCity.value + ","  + searchState.value + "," + searchCountry.value + urlString2 + key;
     console.log(searchCity.value)
     console.log(url);
